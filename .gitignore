@@ -2,3 +2,5 @@ libft.a
 *.o
 main.c
 a.out
+libft.so
+libftTester
