@@ -14,6 +14,4 @@ static void ft_lstclear_util(t_list *lst, void (*del)(void *))
 		return;
 	ft_lstclear_util(lst->next, del);
 	ft_lstdelone(lst, del);
-	lst->next = NULL;
-	free(lst);
 }
