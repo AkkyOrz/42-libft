@@ -66,8 +66,10 @@ static int set_result(char **res, const char *str, const char c)
 			i += size;
 			col++;
 		}
-		i++;
-		printf("i: %i\n", i);
+		else
+		{
+			i++;
+		}
 	}
 	return (1);
 }
