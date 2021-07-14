@@ -1,6 +1,5 @@
 #include "libft.h"
 #include <errno.h>
-#include <stdio.h>
 char **ft_split(char const *s, char c);
 static int count_cols(const char *str, char c);
 static int set_result(char **res, const char *str, char c);
@@ -14,7 +13,6 @@ char **ft_split(char const *str, char c)
 	if (str == NULL)
 		return (NULL);
 	col = count_cols(str, c);
-	printf("strlen: %d, total size: %d\n", ft_strlen(str), col);
 	res = (char **)malloc(sizeof(char *) * (col + 1));
 	if (res == NULL)
 		return (NULL);
@@ -60,7 +58,6 @@ static int set_result(char **res, const char *str, const char c)
 		if (str[i] != c)
 		{
 			size = set_result_util(res + col, str + i, c);
-			printf("col: %d, size: %d, str: %s\n", col, size, *(res + col));
 			if (size < 0)
 				return (-1);
 			i += size;
