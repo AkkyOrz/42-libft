@@ -1,9 +1,9 @@
 #include "libft.h"
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int i;
-	char *to;
-	const char *from;
+	int			i;
+	char		*to;
+	const char	*from;
 
 	to = (char *)dest;
 	from = (const char *)src;

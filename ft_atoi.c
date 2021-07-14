@@ -1,13 +1,13 @@
 #include "libft.h"
 #include <limits.h>
-int ft_atoi(const char *nptr);
-static int ft_isspace(int c);
+int			ft_atoi(const char *nptr);
+static int	ft_isspace(int c);
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-	int i;
-	int sign;
-	long long result;
+	int			i;
+	int			sign;
+	long long	result;
 
 	i = 0;
 	result = 0;
@@ -30,7 +30,7 @@ int ft_atoi(const char *nptr)
 	return ((int)result);
 }
 
-static int ft_isspace(int c)
+static int	ft_isspace(int c)
 {
 	return (('\t' <= c && c <= '\r') || c == ' ');
 }

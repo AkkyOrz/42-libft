@@ -1,11 +1,12 @@
 #include "libft.h"
-static int is_charset_include(const char c, const char *charset);
-char *ft_strtrim(char const *s1, char const *set)
+static int	is_charset_include(const char c, const char *charset);
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int prefix_len;
-	int suffix_len;
-	char *res;
-	int res_len;
+	int		prefix_len;
+	int		suffix_len;
+	char	*res;
+	int		res_len;
 
 	if (s1 == NULL)
 		return (NULL);
@@ -23,9 +24,9 @@ char *ft_strtrim(char const *s1, char const *set)
 	return (res);
 }
 
-static int is_charset_include(const char c, const char *charset)
+static int	is_charset_include(const char c, const char *charset)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (charset[i] != '\0')

@@ -1,8 +1,9 @@
 #include "libft.h"
-static void put_digit_fd(int n, int fd);
-void ft_putnbr_fd(int n, int fd)
+static void	put_digit_fd(int n, int fd);
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	long long nb;
+	long long	nb;
 
 	nb = (long long)n;
 	if (n < 0)

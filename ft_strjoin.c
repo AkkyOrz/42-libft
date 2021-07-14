@@ -1,11 +1,12 @@
 #include "libft.h"
-static int ft_startwith(char const *str, char const *prefix);
-static char *ft_string_merge(const char *s1, const char *s2, int i);
-char *ft_strjoin(char const *s1, char const *s2)
+static int	ft_startwith(char const *str, char const *prefix);
+static char	*ft_string_merge(const char *s1, const char *s2, int i);
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int i;
-	unsigned int s1_len;
-	char *res;
+	unsigned int	i;
+	unsigned int	s1_len;
+	char			*res;
 
 	if (s1 == NULL)
 		return (NULL);
@@ -30,11 +31,12 @@ char *ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-static char *ft_string_merge(const char *s1, const char *s2, int i)
+static char	*ft_string_merge(const char *s1, const char *s2, int i)
 {
-	char *res;
+	char	*res;
 
-	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) - i + ft_strlen(s2) + 1));
+	res = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) - i + ft_strlen(s2) + 1));
 	if (res == NULL)
 		return (NULL);
 	*res = '\0';
@@ -44,9 +46,9 @@ static char *ft_string_merge(const char *s1, const char *s2, int i)
 }
 
 // return overlap string length
-static int ft_startwith(char const *str, char const *prefix)
+static int	ft_startwith(char const *str, char const *prefix)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (prefix[i] != '\0')

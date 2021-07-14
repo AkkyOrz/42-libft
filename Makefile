@@ -1,6 +1,6 @@
 NAME := libft.a
 CC := gcc
-CFLAGS := $(INCLUDES) -Wall -Wextra -Werror
+CFLAGS := $(INCLUDES) -g -Wall -Wextra -Werror
 SRCS :=	ft_strlen.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \

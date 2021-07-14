@@ -1,13 +1,13 @@
 #include "libft.h"
 #include <limits.h>
-static char *recursive_setnbr(long long nbr, char *res);
-static int count_digits(long long nbr);
+static char	*recursive_setnbr(long long nbr, char *res);
+static int	count_digits(long long nbr);
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	long long nbr;
-	char *res;
-	int digit_size;
+	long long	nbr;
+	char		*res;
+	int			digit_size;
 
 	if (INT_MIN)
 		nbr = (long long)n;
@@ -19,9 +19,9 @@ char *ft_itoa(int n)
 	return (res);
 }
 
-static int count_digits(long long nbr)
+static int	count_digits(long long nbr)
 {
-	int str_size;
+	int	str_size;
 
 	str_size = 1;
 	while (nbr < 0)
@@ -37,7 +37,7 @@ static int count_digits(long long nbr)
 	return (str_size);
 }
 
-static char *recursive_setnbr(long long nbr, char *res)
+static char	*recursive_setnbr(long long nbr, char *res)
 {
 	if (nbr < 0)
 	{

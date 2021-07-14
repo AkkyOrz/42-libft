@@ -1,14 +1,17 @@
 #include "libft.h"
+#include <stdlib.h>
 #include <errno.h>
-char **ft_split(char const *s, char c);
-static int count_cols(const char *str, char c);
-static int set_result(char **res, const char *str, char c);
-static int set_result_util(char **res, const char *str, char c);
 
-char **ft_split(char const *str, char c)
+char		**ft_split(char const *s, char c);
+static int	count_cols(const char *str, char c);
+static char	*ft_strcdup(const char *str, char c);
+static char	**set_words(char **res, const char *str,
+				const int col, const char c);
+
+char	**ft_split(char const *str, char c)
 {
-	char **res;
-	int col;
+	char	**res;
+	int		col;
 
 	if (str == NULL)
 		return (NULL);
@@ -16,16 +19,17 @@ char **ft_split(char const *str, char c)
 	res = (char **)malloc(sizeof(char *) * (col + 1));
 	if (res == NULL)
 		return (NULL);
-	if (set_result(res, str, c) < 0)
+	res = set_words(res, str, col, c);
+	if (res == NULL)
 		return (NULL);
 	res[col] = NULL;
 	return (res);
 }
 
-static int count_cols(const char *str, char c)
+static int	count_cols(const char *str, char c)
 {
-	int i;
-	int col;
+	int	i;
+	int	col;
 
 	i = 0;
 	col = 0;
@@ -43,43 +47,43 @@ static int count_cols(const char *str, char c)
 	return (col);
 }
 
-static int set_result(char **res, const char *str, const char c)
-
+static char	*ft_strcdup(const char *str, char c)
 {
-	int i;
-	int size;
-	int col;
-
-	i = 0;
-	size = 0;
-	col = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] != c)
-		{
-			size = set_result_util(res + col, str + i, c);
-			if (size < 0)
-				return (-1);
-			i += size;
-			col++;
-		}
-		else
-		{
-			i++;
-		}
-	}
-	return (1);
-}
-
-static int set_result_util(char **res, const char *str, char c)
-{
-	int len;
+	int		len;
+	char	*res;
 
 	len = 0;
 	while (str[len] != c && str[len] != '\0')
 		len++;
-	*res = ft_substr(str, 0, len);
+	res = ft_substr(str, 0, len);
 	if (res == NULL)
-		return (-1);
-	return (len);
+		return (res);
+	return (res);
+}
+
+static char	**set_words(char **res, const char *str,
+			const int col, const char c)
+{
+	int	str_i;
+	int	col_i;
+
+	str_i = 0;
+	col_i = 0;
+	while (col_i < col)
+	{
+		res[col_i] = ft_strcdup(str, c);
+		if (res[col_i] == NULL)
+		{
+			while (col_i >= 0)
+			{
+				free(res[col_i]);
+				col_i--;
+			}
+			free(res);
+			return (res);
+		}
+		str_i += ft_strlen(res[col_i]);
+		col_i++;
+	}
+	return (res);
 }

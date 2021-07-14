@@ -1,9 +1,10 @@
 #include "libft.h"
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *res;
-	t_list *prev;
-	t_list *tmp;
+	t_list	*res;
+	t_list	*prev;
+	t_list	*tmp;
+
 	(void)del;
 	if (lst == NULL)
 		return (NULL);
