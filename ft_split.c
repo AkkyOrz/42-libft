@@ -91,8 +91,10 @@ static char	**clear_all(char **res, int col_i)
 	while (col_i >= 0)
 	{
 		free(res[col_i]);
+		res[col_i] = NULL;
 		col_i--;
 	}
 	free(res);
+	res = NULL;
 	return (res);
 }
