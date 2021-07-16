@@ -51,9 +51,9 @@ B_OBJS := ${B_SRCS:.c=.o}
 
 all: $(NAME)
 
-# $(NAME): $(OBJS)
-$(NAME): $(OBJS) $(B_OBJS)
-	ar r $(NAME) ${OBJS} $(B_OBJS)
+$(NAME): $(OBJS)
+$(NAME): $(OBJS)
+	ar r $(NAME) ${OBJS}
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
