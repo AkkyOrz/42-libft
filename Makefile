@@ -63,7 +63,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f libft.so a.out
+	rm -rf libft.so a.out a.out.dSYM/
 
 re: fclean all
 
