@@ -66,7 +66,7 @@ fclean: clean
 
 re: fclean all
 
-test: all
+test: bonus
 	$(CC) $(CFLAGS) main.c $(NAME)
 	./a.out
 
