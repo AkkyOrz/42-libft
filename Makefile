@@ -53,7 +53,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 $(NAME): $(OBJS)
-	ar r $(NAME) ${OBJS}
+	ar rc $(NAME) ${OBJS}
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -71,7 +71,7 @@ test: all
 	./a.out
 
 bonus: $(OBJS) $(B_OBJS)
-	ar r $(NAME) ${OBJS} ${B_OBJS}
+	ar rc $(NAME) ${OBJS} ${B_OBJS}
 
 so:
 	gcc -shared $(SRCS) $(B_SRCS) -o libft.so
