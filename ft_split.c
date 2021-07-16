@@ -7,6 +7,7 @@ static int	count_cols(const char *str, char c);
 static char	*ft_strcdup(const char *str, char c);
 static char	**set_words(char **res, const char *str,
 				const int col, const char c);
+static char	**clear_all(char **res, int col_i);
 
 char	**ft_split(char const *str, char c)
 {
@@ -71,19 +72,27 @@ static char	**set_words(char **res, const char *str,
 	col_i = 0;
 	while (col_i < col)
 	{
-		res[col_i] = ft_strcdup(str, c);
-		if (res[col_i] == NULL)
+		if (str[str_i] == c)
 		{
-			while (col_i >= 0)
-			{
-				free(res[col_i]);
-				col_i--;
-			}
-			free(res);
-			return (res);
+			str_i++;
+			continue ;
 		}
+		res[col_i] = ft_strcdup(str + str_i, c);
+		if (res[col_i] == NULL)
+			return (clear_all(res, col_i));
 		str_i += ft_strlen(res[col_i]);
 		col_i++;
 	}
+	return (res);
+}
+
+static char	**clear_all(char **res, int col_i)
+{
+	while (col_i >= 0)
+	{
+		free(res[col_i]);
+		col_i--;
+	}
+	free(res);
 	return (res);
 }
