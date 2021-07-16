@@ -76,4 +76,4 @@ bonus: $(OBJS) $(B_OBJS)
 so:
 	gcc -shared $(SRCS) $(B_SRCS) -o libft.so
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test bonus so
