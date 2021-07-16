@@ -62,7 +62,7 @@ clean:
 	rm -f $(OBJS) $(B_OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) libft.so
 
 re: fclean all
 
