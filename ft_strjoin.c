@@ -22,13 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			return (res);
 		}
 	}
-	res = (char *)malloc(sizeof(char) * (s1_len + ft_strlen(s2) + 1));
-	if (res == NULL)
-		return (NULL);
-	*res = '\0';
-	ft_strlcat(res, s1, s1_len + 1);
-	ft_strlcat(res, s2, s1_len + ft_strlen(s2) + 1);
-	return (res);
+	return (ft_string_merge(s1, s2, 0));
 }
 
 static char	*ft_string_merge(const char *s1, const char *s2, int i)
@@ -41,7 +35,7 @@ static char	*ft_string_merge(const char *s1, const char *s2, int i)
 		return (NULL);
 	*res = '\0';
 	ft_strlcat(res, s1 + i, ft_strlen(s1) - i + 1);
-	ft_strlcat(res, s2, ft_strlen(s2) + 1);
+	ft_strlcat(res, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (res);
 }
 
