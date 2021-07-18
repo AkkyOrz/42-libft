@@ -95,6 +95,5 @@ static char	**clear_all(char **res, int col_i)
 		col_i--;
 	}
 	free(res);
-	res = NULL;
-	return (res);
+	return (NULL);
 }

@@ -7,19 +7,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		suffix_len;
 	char	*res;
 	int		res_len;
+	int		s1_len;
 
 	if (s1 == NULL)
 		return (NULL);
 	prefix_len = 0;
+	s1_len = ft_strlen(s1);
 	while (is_charset_include(s1[prefix_len], set) != 0)
 		prefix_len++;
-	if (prefix_len == ft_strlen(s1))
+	if (prefix_len == s1_len)
 		return (ft_strdup(""));
 	suffix_len = 0;
-	while (is_charset_include(s1[ft_strlen(s1) - 1 - suffix_len], set) != 0)
+	while (is_charset_include(s1[s1_len - 1 - suffix_len], set) != 0)
 		suffix_len++;
-	res_len = ft_strlen(s1) - (prefix_len + suffix_len) + 1;
-	res = (char *)ft_calloc(res_len, sizeof(char));
+	res_len = s1_len - (prefix_len + suffix_len) + 1;
+	res = (char *)malloc(sizeof(char) * res_len);
 	ft_strlcpy(res, s1 + prefix_len, res_len);
 	return (res);
 }

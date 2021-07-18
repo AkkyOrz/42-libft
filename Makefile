@@ -69,7 +69,7 @@ re: fclean all
 
 test: bonus
 	$(CC) $(CFLAGS) main.c $(NAME)
-	./a.out
+	./a.out | cat -e
 
 bonus: $(OBJS) $(B_OBJS)
 	ar rc $(NAME) ${OBJS} ${B_OBJS}

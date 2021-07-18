@@ -9,10 +9,9 @@ char	*ft_itoa(int n)
 	char		*res;
 	int			digit_size;
 
-	if (INT_MIN)
-		nbr = (long long)n;
+	nbr = (long long)n;
 	digit_size = count_digits(nbr);
-	res = (char *)ft_calloc(digit_size + 1, sizeof(char));
+	res = (char *)malloc(sizeof(char) * (digit_size + 1));
 	if (res == NULL)
 		return (NULL);
 	recursive_setnbr(nbr, res);
