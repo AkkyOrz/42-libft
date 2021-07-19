@@ -15,6 +15,7 @@ char	*ft_itoa(int n)
 	if (res == NULL)
 		return (NULL);
 	recursive_setnbr(nbr, res);
+	res[digit_size] = '\0';
 	return (res);
 }
 
