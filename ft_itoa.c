@@ -11,11 +11,10 @@ char	*ft_itoa(int n)
 
 	nbr = (long long)n;
 	digit_size = count_digits(nbr);
-	res = (char *)malloc(sizeof(char) * (digit_size + 1));
+	res = (char *)ft_calloc(digit_size + 1, sizeof(char));
 	if (res == NULL)
 		return (NULL);
 	recursive_setnbr(nbr, res);
-	res[digit_size] = '\0';
 	return (res);
 }
 
