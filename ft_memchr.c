@@ -1,7 +1,7 @@
 #include "libft.h"
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int		i;
+	size_t				i;
 	unsigned const char	*str;
 
 	str = s;

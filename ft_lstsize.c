@@ -1,7 +1,7 @@
 #include "libft.h"
 int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	size_t	size;
 
 	if (lst == NULL)
 		return (0);
@@ -11,5 +11,5 @@ int	ft_lstsize(t_list *lst)
 		size++;
 		lst = lst->next;
 	}
-	return (size);
+	return ((int)size);
 }

@@ -45,13 +45,15 @@ B_SRCS=	ft_lstnew.c \
 	 ft_lstiter.c \
 	 ft_lstmap.c
 
-OBJS := ${SRCS:.c=.o}
+OBJS = ${SRCS:.c=.o}
 B_OBJS := ${B_SRCS:.c=.o}
 
+ifdef WITH_BONUS
+OBJS += $(B_OBJS)
+endif
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
 $(NAME): $(OBJS)
 	ar rc $(NAME) ${OBJS}
 
@@ -71,8 +73,8 @@ test: bonus
 	$(CC) $(CFLAGS) main.c $(NAME)
 	./a.out | cat -e
 
-bonus: $(OBJS) $(B_OBJS)
-	ar rc $(NAME) ${OBJS} ${B_OBJS}
+bonus:
+	make WITH_BONUS=1
 
 so:
 	gcc -shared $(SRCS) $(B_SRCS) -o libft.so

@@ -23,7 +23,7 @@ static int	count_digits(long long nbr)
 	int	str_size;
 
 	str_size = 1;
-	while (nbr < 0)
+	if (nbr < 0)
 	{
 		nbr *= -1;
 		str_size++;
@@ -31,7 +31,7 @@ static int	count_digits(long long nbr)
 	while (nbr >= 10)
 	{
 		str_size++;
-		nbr /= str_size;
+		nbr /= 10;
 	}
 	return (str_size);
 }

@@ -2,10 +2,10 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
+	size_t	i;
 	char	*res;
 
-	if (s == NULL)
+	if (s == NULL || f == NULL)
 		return (NULL);
 	res = ft_strdup(s);
 	if (res == NULL)

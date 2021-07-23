@@ -1,12 +1,13 @@
 #include "libft.h"
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned int	index;
-	unsigned int	j;
+	size_t	index;
+	size_t	j;
 
-	index = 0;
-	if (little[index] == '\0')
+	if (little[0] == '\0')
 		return ((char *)big);
+	index = 0;
 	while (big[index] != '\0' && index < len)
 	{
 		j = 0;

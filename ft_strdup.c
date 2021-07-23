@@ -2,10 +2,12 @@
 char	*ft_strdup(const char *s)
 {
 	char	*str;
+	size_t	len;
 
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	ft_strlcpy(str, s, ft_strlen(s) + 1);
+	ft_strlcpy(str, s, len + 1);
 	return (str);
 }

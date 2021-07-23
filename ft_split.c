@@ -1,18 +1,17 @@
 #include "libft.h"
 #include <stdlib.h>
-#include <errno.h>
 
 char		**ft_split(char const *s, char c);
 static int	count_cols(const char *str, char c);
 static char	*ft_strcdup(const char *str, char c);
 static char	**set_words(char **res, const char *str,
-				const int col, const char c);
-static char	**clear_all(char **res, int col_i);
+				const size_t col, const char c);
+static char	**clear_all(char **res, size_t col_i);
 
 char	**ft_split(char const *str, char c)
 {
 	char	**res;
-	int		col;
+	size_t	col;
 
 	if (str == NULL)
 		return (NULL);
@@ -29,8 +28,8 @@ char	**ft_split(char const *str, char c)
 
 static int	count_cols(const char *str, char c)
 {
-	int	i;
-	int	col;
+	size_t	i;
+	size_t	col;
 
 	i = 0;
 	col = 0;
@@ -50,7 +49,7 @@ static int	count_cols(const char *str, char c)
 
 static char	*ft_strcdup(const char *str, char c)
 {
-	int		len;
+	size_t	len;
 	char	*res;
 
 	len = 0;
@@ -58,15 +57,15 @@ static char	*ft_strcdup(const char *str, char c)
 		len++;
 	res = ft_substr(str, 0, len);
 	if (res == NULL)
-		return (res);
+		return (NULL);
 	return (res);
 }
 
 static char	**set_words(char **res, const char *str,
-			const int col, const char c)
+			const size_t col, const char c)
 {
-	int	str_i;
-	int	col_i;
+	size_t	str_i;
+	size_t	col_i;
 
 	str_i = 0;
 	col_i = 0;
@@ -86,12 +85,12 @@ static char	**set_words(char **res, const char *str,
 	return (res);
 }
 
-static char	**clear_all(char **res, int col_i)
+static char	**clear_all(char **res, size_t col_i)
 {
-	while (col_i >= 0)
+	while (col_i > 0)
 	{
-		free(res[col_i]);
-		res[col_i] = NULL;
+		free(res[col_i - 1]);
+		res[col_i - 1] = NULL;
 		col_i--;
 	}
 	free(res);
