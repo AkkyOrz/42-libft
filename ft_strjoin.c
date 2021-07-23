@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <limits.h>
 #include <errno.h>
+#include <stdint.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -12,7 +13,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if (s1_len > LONG_MAX - s2_len)
+	if (s1_len > SIZE_MAX - s2_len - 1)
 	{
 		errno = ENOMEM;
 		return (NULL);

@@ -9,7 +9,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nb = (long long)n * -1;
+		nb *= -1;
 	}
 	if (nb >= 10)
 	{
