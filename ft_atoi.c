@@ -1,9 +1,10 @@
 #include "libft.h"
 #include <limits.h>
+#include <errno.h>
 int			ft_atoi(const char *nptr);
 static void	read_sign(int *sign, size_t *i, char c);
 static int	ft_isspace(int c);
-static int	overflow_num(long long result, int sign, int overflow);
+static int	return_value(long long result, int sign, int overflow);
 
 int	ft_atoi(const char *nptr)
 {
@@ -31,7 +32,7 @@ int	ft_atoi(const char *nptr)
 		result += (nptr[i] - '0');
 		i++;
 	}
-	return (overflow_num(result, sign, overflow));
+	return (return_value(result, sign, overflow));
 }
 
 static void	read_sign(int *sign, size_t *i, char c)
@@ -49,14 +50,15 @@ static int	ft_isspace(int c)
 	return (('\t' <= c && c <= '\r') || c == ' ');
 }
 
-static int	overflow_num(long long result, int sign, int overflow)
+static int	return_value(long long result, int sign, int overflow)
 {
 	if (overflow)
 	{
+		errno = ERANGE;
 		if (sign == 1)
-			return (-1);
+			return ((int)LONG_MAX);
 		if (sign == -1)
-			return (0);
+			return ((int)LONG_MIN);
 	}
 	return (result * sign);
 }

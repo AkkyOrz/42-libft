@@ -5,7 +5,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	prefix_len;
 	size_t	suffix_len;
-	char	*res;
 	size_t	res_len;
 	size_t	s1_len;
 
@@ -20,10 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	suffix_len = 0;
 	while (contains_charset(s1[s1_len - 1 - suffix_len], set) != 0)
 		suffix_len++;
-	res_len = s1_len - (prefix_len + suffix_len) + 1;
-	res = (char *)malloc(sizeof(char) * res_len);
-	ft_strlcpy(res, s1 + prefix_len, res_len);
-	return (res);
+	res_len = s1_len - (prefix_len + suffix_len);
+	return (ft_substr(s1, prefix_len, res_len));
 }
 
 static int	contains_charset(const char c, const char *charset)

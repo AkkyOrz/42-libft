@@ -13,11 +13,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (ft_strlen(s) <= (size_t)start)
 		return (ft_strdup(""));
 	len = ft_min(len, ft_strlen(s) - (size_t)start);
-	if (len > SIZE_MAX - 1)
-	{
-		errno = ENOMEM;
-		return (NULL);
-	}
 	res = (char *)malloc(sizeof(char) * (len) + 1);
 	if (res == NULL)
 		return (NULL);
