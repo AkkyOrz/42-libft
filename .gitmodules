@@ -1,3 +1,0 @@
-[submodule "Libftest"]
-	path = Libftest
-	url = git@github.com:jtoty/Libftest.git
