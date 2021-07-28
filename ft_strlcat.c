@@ -1,4 +1,6 @@
 #include "libft.h"
+static void	*string_copy(char *dest, const char *src, size_t n);
+
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
@@ -11,11 +13,24 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (dst_len == size)
 		return (size + src_len);
 	if (src_len < size - dst_len)
-		ft_memmove(dst + dst_len, src, src_len + 1);
+		string_copy(dst + dst_len, src, src_len + 1);
 	else
 	{
-		ft_memmove(dst + dst_len, src, size - dst_len - 1);
+		string_copy(dst + dst_len, src, size - dst_len - 1);
 		dst[size - 1] = '\0';
 	}
 	return (dst_len + src_len);
+}
+
+static void	*string_copy(char *dest, const char *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
 }
