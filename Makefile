@@ -35,6 +35,7 @@ SRCS :=	ft_strlen.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
+
 B_SRCS=	ft_lstnew.c \
 	 ft_lstadd_front.c \
 	 ft_lstsize.c \
@@ -52,6 +53,7 @@ ifdef WITH_BONUS
 OBJS += $(B_OBJS)
 endif
 
+.PHONY: all
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -60,20 +62,23 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+.PHONY: clean
 clean:
 	rm -f $(OBJS) $(B_OBJS)
 
+.PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
 	rm -rf libft.so a.out a.out.dSYM/
 
+.PHONY: re
 re: fclean all
 
+.PHONY: test
 test: bonus
 	$(CC) $(CFLAGS) main.c $(NAME)
 	./a.out | cat -e
 
+.PHONY: bonus
 bonus:
 	make WITH_BONUS=1
-
-.PHONY: all clean fclean re test bonus so
