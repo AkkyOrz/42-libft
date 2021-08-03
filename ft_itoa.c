@@ -45,7 +45,7 @@ static char	*recursive_setnbr(long long nbr, char *res)
 	}
 	if (nbr < 10)
 	{
-		*res = nbr + '0';
+		res[0] = nbr + '0';
 		return (res + 1);
 	}
 	res = recursive_setnbr((nbr / 10), res);

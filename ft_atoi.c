@@ -27,9 +27,9 @@ int	ft_atoi(const char *nptr)
 		result *= 10;
 		if (result > (LONG_MAX - (nptr[i] - '0')))
 			overflow = 1;
+		result += (nptr[i] - '0');
 		if (overflow)
 			break ;
-		result += (nptr[i] - '0');
 		i++;
 	}
 	return (return_value(result, sign, overflow));

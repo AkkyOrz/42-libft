@@ -50,15 +50,11 @@ static int	count_cols(const char *str, char c)
 static char	*ft_strcdup(const char *str, char c)
 {
 	size_t	len;
-	char	*res;
 
 	len = 0;
 	while (str[len] != c && str[len] != '\0')
 		len++;
-	res = ft_substr(str, 0, len);
-	if (res == NULL)
-		return (NULL);
-	return (res);
+	return (ft_substr(str, 0, len));
 }
 
 static char	**set_words(char **res, const char *str,

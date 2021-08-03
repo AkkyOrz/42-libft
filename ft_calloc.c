@@ -8,7 +8,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*res;
 
 	if (size == 0 || nmemb == 0)
-		return (NULL);
+	{
+		size = 1;
+		nmemb = 1;
+	}
 	if (nmemb > (SIZE_MAX / size))
 	{
 		errno = ENOMEM;
