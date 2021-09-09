@@ -6,7 +6,7 @@
 /*   By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 20:14:14 by akito             #+#    #+#             */
-/*   Updated: 2021/09/09 20:14:15 by akito            ###   ########.fr       */
+/*   Updated: 2021/09/09 20:16:43 by akito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ void	ft_putnbr_fd(int n, int fd);
 // extra files
 
 int64_t	ft_my_putchar(char c);
-int64_t	ft_my_putstr(char *s);
-int64_t	ft_my_putendl(char *s);
-int64_t	ft_my_putnbr(int n);
+int64_t	ft_my_putstr(const char *s);
 
 typedef struct s_list
 {
