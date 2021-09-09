@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 18:26:20 by akito             #+#    #+#             */
-/*   Updated: 2021/09/09 18:26:21 by akito            ###   ########.fr       */
+/*   Created: 2021/09/09 20:14:14 by akito             #+#    #+#             */
+/*   Updated: 2021/09/09 20:14:15 by akito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -45,9 +46,16 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(const char *s, int fd);
+void	ft_putendl_fd(const char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// extra files
+
+int64_t	ft_my_putchar(char c);
+int64_t	ft_my_putstr(char *s);
+int64_t	ft_my_putendl(char *s);
+int64_t	ft_my_putnbr(int n);
 
 typedef struct s_list
 {
