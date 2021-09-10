@@ -6,7 +6,7 @@
 #    By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 18:26:26 by akito             #+#    #+#              #
-#    Updated: 2021/09/09 18:26:27 by akito            ###   ########.fr        #
+#    Updated: 2021/09/10 17:57:53 by akito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,13 @@ SRCS :=	ft_strlen.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c\
+		ft_my_putchar.c\
+		ft_my_putstr.c\
+		ft_my_putnbr.c\
+		ft_my_unsigned_putnbr.c\
+		ft_my_putbase.c\
+		ft_my_putpointer.c\
 
 B_SRCS=	ft_lstnew.c \
 	 ft_lstadd_front.c \
