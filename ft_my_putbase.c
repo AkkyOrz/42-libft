@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_my_putbase.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/12 12:42:24 by akito             #+#    #+#             */
+/*   Updated: 2021/09/12 15:21:57 by akito            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <limits.h>
 static char	*recursive_setnbr(uint64_t nbr, char *res, char *base);
@@ -15,15 +27,15 @@ int64_t	ft_my_putbase(size_t n, char *base)
 	if (res == NULL)
 		return (0);
 	recursive_setnbr(nbr, res, base);
-	ft_putstr_fd(res, 1);
+	digit_size = ft_my_putstr(res);
 	free(res);
 	return ((int64_t)digit_size);
 }
 
 static int	count_digits(uint64_t nbr, char *base)
 {
-	int	str_size;
-	const uint64_t base_len = ft_strlen(base);
+	int				str_size;
+	const uint64_t	base_len = ft_strlen(base);
 
 	str_size = 1;
 	while (nbr >= base_len)
@@ -36,7 +48,7 @@ static int	count_digits(uint64_t nbr, char *base)
 
 static char	*recursive_setnbr(uint64_t nbr, char *res, char *base)
 {
-	const uint64_t base_len = ft_strlen(base);
+	const uint64_t	base_len = ft_strlen(base);
 
 	if (nbr < base_len)
 	{

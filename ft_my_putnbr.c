@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_my_putnbr.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/12 12:42:09 by akito             #+#    #+#             */
+/*   Updated: 2021/09/12 12:42:10 by akito            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <limits.h>
+
 static char	*recursive_setnbr(long long nbr, char *res);
 static int	count_digits(long long nbr);
 
