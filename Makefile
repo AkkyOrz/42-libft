@@ -6,7 +6,7 @@
 #    By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 18:26:26 by akito             #+#    #+#              #
-#    Updated: 2021/09/09 18:26:27 by akito            ###   ########.fr        #
+#    Updated: 2021/12/06 19:19:51 by akito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,14 @@ SRCS :=	ft_strlen.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c\
+		ft_my_putchar.c\
+		ft_my_putstr.c\
+		ft_my_putnbr.c\
+		ft_my_unsigned_putnbr.c\
+		ft_my_putbase.c\
+		ft_my_putpointer.c\
+		ft_my_atof.c
 
 B_SRCS=	ft_lstnew.c \
 	 ft_lstadd_front.c \
@@ -61,6 +68,11 @@ B_SRCS=	ft_lstnew.c \
 OBJS = ${SRCS:.c=.o}
 B_OBJS := ${B_SRCS:.c=.o}
 
+RED			=	'\033[31m'
+GREEN		=	'\033[32m'
+YELLOW		=	'\033[33m'
+RESET		=	'\033[0m'
+
 ifdef WITH_BONUS
 OBJS += $(B_OBJS)
 endif
@@ -69,10 +81,12 @@ endif
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) ${OBJS}
+	@ar rc $(NAME) ${OBJS}
+	@echo $(YELLOW)"@@@@@ libft.a created @@@@@"$(RESET)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@echo $(GREEN)"Creating: $@"$(RESET)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
@@ -81,7 +95,6 @@ clean:
 .PHONY: fclean
 fclean: clean
 	rm -f $(NAME)
-	rm -rf libft.so a.out a.out.dSYM/
 
 .PHONY: re
 re: fclean all
@@ -94,3 +107,4 @@ test: bonus
 .PHONY: bonus
 bonus:
 	make WITH_BONUS=1
+

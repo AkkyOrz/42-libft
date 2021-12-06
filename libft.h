@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akito <akito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 18:26:20 by akito             #+#    #+#             */
-/*   Updated: 2021/09/09 18:26:21 by akito            ###   ########.fr       */
+/*   Created: 2021/09/09 20:14:14 by akito             #+#    #+#             */
+/*   Updated: 2021/11/23 11:38:29 by akito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <stdint.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -48,6 +49,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+// extra files
+
+int64_t	ft_my_putchar(char c);
+int64_t	ft_my_putstr(const char *s);
+int64_t	ft_my_putnbr(int n);
+int64_t	ft_my_unsigned_putnbr(unsigned int n);
+int64_t	ft_my_putbase(size_t n, char *base);
+int64_t	ft_my_putpointer(size_t n);
+double	ft_my_atof(const char *nptr);
 
 typedef struct s_list
 {
